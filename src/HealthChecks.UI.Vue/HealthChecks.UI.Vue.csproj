@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0-rc.1.23419.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.9" />
+    <PackageReference Include="KubernetesClient" Version="11.0.44" />
+
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Client\dist\index.html" />
+    <EmbeddedResource Include="Client/dist/assets/**/*" Exclude="**/*/index.html;**/*/*.map;**/*/*.json;**/*/*.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HealthChecks.UI.Data\HealthChecks.UI.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Client\" />
+  </ItemGroup>
+  
+</Project>

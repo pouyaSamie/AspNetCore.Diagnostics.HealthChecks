@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\HealthChecks.UI.InMemory.Storage\HealthChecks.UI.InMemory.Storage.csproj" />
-    <ProjectReference Include="..\..\src\HealthChecks.UI\HealthChecks.UI.csproj" />
+    <ProjectReference Include="..\..\src\HealthChecks.UI.Vue\HealthChecks.UI.Vue.csproj" />
   </ItemGroup>
 
   <ItemGroup>
