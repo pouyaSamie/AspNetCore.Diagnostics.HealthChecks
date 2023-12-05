@@ -20,9 +20,5 @@
   <ItemGroup>
     <ProjectReference Include="..\HealthChecks.UI.Data\HealthChecks.UI.Data.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Client\" />
-  </ItemGroup>
   
 </Project>

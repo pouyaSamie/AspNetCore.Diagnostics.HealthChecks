@@ -24,7 +24,7 @@ public static class EndpointRouteBuilderExtensions
                 .Build();
 
         var settingsDelegate = builder.CreateApplicationBuilder()
-            .UseMiddleware<UISettingsMiddleware>()
+            .UseMiddleware<UISettingsMiddleware>(options)
             .Build();
 
         var webhooksDelegate =
@@ -42,7 +42,7 @@ public static class EndpointRouteBuilderExtensions
             .WithDisplayName("HealthChecks UI Api");
 
         var settingsEndpoint =
-            builder.Map($"{options.ApiPath}/{Keys.HEALTHCHECKSUI_SETTINGS_PATH}", settingsDelegate);
+            builder.Map($"{Keys.HEALTHCHECKSUI_SETTINGS_PATH}", settingsDelegate);
 
         var webhooksEndpoint = builder.Map(options.WebhookPath, webhooksDelegate)
             .WithDisplayName("HealthChecks UI Webhooks");

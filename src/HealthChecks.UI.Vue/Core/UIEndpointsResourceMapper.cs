@@ -19,7 +19,7 @@ internal class UIEndpointsResourceMapper
         var endpoints = new List<IEndpointConventionBuilder>();
 
         var resources = _reader.UIResources;
-        var ui = resources.GetMainUI(options);
+        var ui = resources.GetMainUI();
         var styleSheets = ui.GetCustomStylesheets(options);
 
         foreach (var resource in resources)

@@ -5,10 +5,11 @@ public class Options
     internal ICollection<string> CustomStylesheets { get; } = new List<string>();
     public string UIPath { get; set; } = "/healthchecks-ui";
     public string ApiPath { get; set; } = "/healthchecks-api";
+    public string SettingApiPath { get; set; } = "/healthchecks-settings";
     public bool UseRelativeApiPath = true;
     public string WebhookPath { get; set; } = "/healthchecks-webhooks";
     public bool UseRelativeWebhookPath = true;
-    public string ResourcesPath { get; set; } = "/assets";
+    public string ResourcesPath { get; set; } = "/healthchecks-ui/assets";
     public bool UseRelativeResourcesPath = true;
     public bool AsideMenuOpened { get; set; } = true;
     public string PageTitle { get; set; } = "Health Checks UI";

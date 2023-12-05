@@ -26,7 +26,6 @@ public static class ApplicationBuilderExtensions
         EnsureValidApiOptions(options);
 
         var embeddedResourcesAssembly = typeof(UIResource).Assembly;
-
         app.Map(options.ApiPath, appBuilder =>
         {
             appBuilder
