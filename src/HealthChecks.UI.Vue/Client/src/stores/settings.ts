@@ -1,18 +1,17 @@
 import type { UISettingsType } from '@/types/uiSettings.type'
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
-import { SettingsApi } from '@/api/settingsApi'
-import { useCachedRequest } from './useCachedRequest'
-import type { CasheResult } from '@/types/CasheResult'
+import { reactive } from 'vue'
+import { fetchSettings } from '@/api/settingsApi'
 
 export const useSettingsStore = defineStore('settings-store', () => {
-  function getSettings(): CasheResult<UISettingsType> {
-    const key = ref('settings')
-    return useCachedRequest<UISettingsType, string>(key, async () => {
-      const x = SettingsApi()
-      console.log(x)
-      return x
-    })
+  const state = reactive({
+    settings: {} as UISettingsType
+  })
+
+  const initSettings = async (): Promise<void> => {
+    state.settings = await fetchSettings()
+    console.log('from store:', state.settings)
   }
-  return { getSettings }
+
+  return { initSettings, state }
 })
