@@ -32,7 +32,7 @@
     <InternalsVisibleTo Include="HealthChecks.UI.Image" />
   </ItemGroup>
 
-  <Target Name="InstallPackages" BeforeTargets="BeforeBuild">
+  <!--<Target Name="InstallPackages" BeforeTargets="BeforeBuild">
     <Message Importance="high" Text="*** Installing npm packages ***" />
     <Exec Command="npm install" ContinueOnError="false" />
   </Target>
@@ -45,6 +45,6 @@
   <Target Name="UglifyCss" BeforeTargets="BeforeBuild" DependsOnTargets="BuildClient">
     <Message Importance="high" Text="*** Uglifying css files *** " />
     <Exec Command="npm run buildcss:prod" ContinueOnError="false" />
-  </Target>
+  </Target>-->
 
 </Project>

@@ -1,16 +1,23 @@
 <template>
-  <div class="about">
-    <h1>{{ settings }}</h1>
-  </div>
+  <div class="about">{{}}</div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { useSettingsStore } from '@/stores/settings'
+import type { UISettingsType } from '@/types/uiSettings.type'
+import { onMounted, ref } from 'vue'
 
-const settings = ref(null)
-fetch('https://localhost:44318/ui-settings')
-  .then((response) => response.json())
-  .then((data) => (settings.value = data))
+const settingsStore = useSettingsStore()
+const settings = ref<UISettingsType>({} as UISettingsType)
+onMounted(async () => {
+  try {
+    const result = await settingsStore.getSettings()
+    console.log(result.data.value)
+    settings.value = result.data as unknown as UISettingsType
+  } catch (error) {
+    console.error('Error fetching settings:', error)
+  }
+})
 </script>
 <style>
 @media (min-width: 1024px) {

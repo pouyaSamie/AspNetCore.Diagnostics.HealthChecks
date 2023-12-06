@@ -21,9 +21,7 @@ internal class UISettingsMiddleware
         {
             pollingInterval = settings.Value.EvaluationTimeInSeconds,
             headerText = settings.Value.HeaderText,
-            apiPath = _apiPath,
             webhooksPath = _webhooksPath,
-            resourcePath = _resourcePath,
             asideMenuOpened = options.AsideMenuOpened.ToString().ToLower(),
             pageTitle = options.PageTitle
 
