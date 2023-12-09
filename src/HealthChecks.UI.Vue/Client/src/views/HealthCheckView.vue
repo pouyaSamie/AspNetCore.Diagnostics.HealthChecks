@@ -1,13 +1,14 @@
 <template>
-  <div class="about">{{ settings }}</div>
+  <main></main>
 </template>
 
 <script lang="ts" setup>
-import { useSettingsStore } from '@/stores/settings'
-import { computed } from 'vue'
+import { useSettingsStore } from '@/stores/settings';
+import { computed } from 'vue';
 
-const settingsStore = useSettingsStore()
-const settings = computed(() => settingsStore.state.settings)
+const settingStore = useSettingsStore()
+const settings = computed(() => settingStore.state.settings)
+
 </script>
 <style>
 @media (min-width: 1024px) {

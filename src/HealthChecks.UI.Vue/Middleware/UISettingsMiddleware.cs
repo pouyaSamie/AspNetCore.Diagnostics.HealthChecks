@@ -15,7 +15,6 @@ internal class UISettingsMiddleware
 
         var _apiPath = options.UseRelativeApiPath ? options.ApiPath.AsRelativeResource() : options.ApiPath;
         var _webhooksPath = options.UseRelativeWebhookPath ? options.WebhookPath.AsRelativeResource() : options.WebhookPath;
-        var _resourcePath = options.UseRelativeResourcesPath ? options.ResourcesPath.AsRelativeResource() : options.ResourcesPath;
 
         _uiOutputSettings = new
         {
@@ -23,7 +22,8 @@ internal class UISettingsMiddleware
             headerText = settings.Value.HeaderText,
             webhooksPath = _webhooksPath,
             asideMenuOpened = options.AsideMenuOpened.ToString().ToLower(),
-            pageTitle = options.PageTitle
+            pageTitle = options.PageTitle,
+            apiPath = _apiPath
 
         };
     }
