@@ -1,14 +1,22 @@
 <template>
-  <main></main>
+  <main>{{ data }}</main>
 </template>
 
 <script lang="ts" setup>
-import { useSettingsStore } from '@/stores/settings';
-import { computed } from 'vue';
+import { usehealthCheck } from '@/stores/healthCheck'
+import type { HealthCheck } from '@/types/healthChecks.type'
+import { onMounted, ref } from 'vue'
 
-const settingStore = useSettingsStore()
-const settings = computed(() => settingStore.state.settings)
-
+const healthCheckStore = usehealthCheck()
+const data = ref<HealthCheck>()
+onMounted(async () => {
+  try {
+    const response = await healthCheckStore.getHealthCheckReports()
+    data.value = response // Assuming your response has a 'data' property
+  } catch (error) {
+    console.error('Error fetching health check reports:', error)
+  }
+})
 </script>
 <style>
 @media (min-width: 1024px) {
@@ -19,3 +27,4 @@ const settings = computed(() => settingStore.state.settings)
   }
 }
 </style>
+@/store/healthCheck

@@ -12,13 +12,6 @@
 </template>
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import { useSettingsStore } from './stores/settings'
-import { onMounted } from 'vue'
-const settingStore = useSettingsStore()
-
-onMounted(async () => {
-  await settingStore.initSettings()
-})
 </script>
 
 <style scoped>

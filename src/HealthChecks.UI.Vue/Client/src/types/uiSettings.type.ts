@@ -1,7 +1,8 @@
-export type UISettingsType= {
-  pollingInterval : number
+export type UISettingsType = {
+  pollingInterval: number
   headerText: string
   webhooksPath: string
-  asideMenuOpened : string
+  asideMenuOpened: string
   pageTitle: string
+  apiPath:string
 }
